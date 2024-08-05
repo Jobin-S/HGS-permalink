@@ -167,7 +167,7 @@ export default function Page({
         <div className="share_btn_con">
           <button
             onClick={() => {
-              window.location.pathname = VIEW_RESULT_URL;
+              window.location.href = VIEW_RESULT_URL;
             }}
           >
             View your result
