@@ -117,7 +117,7 @@ export default function Page({
 }: {
   outcome: {
     contentName: contentElementNameEnum;
-    HelmetElementName: helmetElementNameEnum;
+    helmetElementName: helmetElementNameEnum;
     cardElementName: cardElementNameEnum;
     code: string;
     title: string;
@@ -129,7 +129,7 @@ export default function Page({
   const { getResultCardImage } = useUtils();
 
   const Content = Components[outcome.contentName] || (() => <></>);
-  const HelmetElement = Components[outcome.HelmetElementName] || (() => <></>);
+  const HelmetElement = Components[outcome.helmetElementName] || (() => <></>);
   const CardElement = Components[outcome.cardElementName] || (() => <></>);
 
   const bgSpotColor = "rgba(99, 99, 99, 0.35)";
@@ -179,7 +179,7 @@ export default function Page({
           viewBox="0 0 1565.993 770.343"
         >
           <defs>
-            <clipPath id="clip-path">
+            <clipPath id="clipPath">
               <rect
                 id="Rectangle_3"
                 data-name="Rectangle 3"
@@ -195,7 +195,7 @@ export default function Page({
             data-name="Group 2"
             transform="translate(-0.5 -0.501)"
           >
-            <g id="Group_1" data-name="Group 1" clip-path="url(#clip-path)">
+            <g id="Group_1" data-name="Group 1" clipPath="url(#clipPath)">
               <rect
                 id="Rectangle_2"
                 data-name="Rectangle 2"
@@ -204,7 +204,7 @@ export default function Page({
                 transform="translate(0.5 0.5)"
                 fill="none"
                 stroke-miterlimit="10"
-                stroke-width="1"
+                strokeWidth="1"
               />
               <path
                 id="Path_1"
@@ -837,7 +837,7 @@ export default function Page({
                 fill="none"
                 stroke="#262424"
                 stroke-miterlimit="10"
-                stroke-width="1"
+                strokeWidth="1"
               />
               <path
                 id="Path_106"
