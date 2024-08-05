@@ -34,7 +34,10 @@ export default function Page() {
     <div>
       <Head>
         <title>{`${router.query.id} - HGS`}</title>
-        <meta property="og:image" content={`/images/og/${outcome?.code}.png`} />
+        <meta
+          property="og:image"
+          content={`https://hgs-permalink.vercel.app/images/og/${outcome?.code}.png`}
+        />
         <meta property="og:url" content={`/result/${outcome?.code}`} />
       </Head>
       <div
