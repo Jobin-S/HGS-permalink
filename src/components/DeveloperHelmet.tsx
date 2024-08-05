@@ -377,7 +377,7 @@ export const DeveloperHelmet = ({ color }: HelmetProps) => {
           data-name="Path 256"
           d="M628.615,235.649a18.14,18.14,0,1,1-19,17.241,18.14,18.14,0,0,1,19-17.241"
           fill={color}
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
         <path
           id="Path_257"
@@ -390,7 +390,7 @@ export const DeveloperHelmet = ({ color }: HelmetProps) => {
           data-name="Path 258"
           d="M628.429,239.493a14.292,14.292,0,1,1-14.966,13.583,14.291,14.291,0,0,1,14.966-13.583"
           fill="#fff"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
         <path
           id="Path_259"
@@ -403,7 +403,7 @@ export const DeveloperHelmet = ({ color }: HelmetProps) => {
           data-name="Path 260"
           d="M628.236,243.48a10.3,10.3,0,1,1-10.787,9.79,10.3,10.3,0,0,1,10.787-9.79"
           fill={color}
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
         <path
           id="Path_261"
@@ -416,7 +416,7 @@ export const DeveloperHelmet = ({ color }: HelmetProps) => {
           data-name="Path 262"
           d="M628.032,247.678a6.1,6.1,0,1,1-6.385,5.8,6.1,6.1,0,0,1,6.385-5.8"
           fill="#fff"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
         <path
           id="Path_263"
