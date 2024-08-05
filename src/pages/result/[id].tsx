@@ -30,6 +30,37 @@ import {
 } from "@/components/DeveloperHelmet";
 import { DarkCard, LightCard } from "@/components/LightCard";
 
+enum helmetElementNameEnum {
+  AdminHelmet = "AdminHelmet",
+  DeveloperHelmet = "DeveloperHelmet",
+  OrganiserHelmet = "OrganiserHelmet",
+  QaHelmet = "QaHelmet",
+  UiUxHelmet = "UiUxHelmet",
+}
+
+enum contentElementNameEnum {
+  TheArtist = "TheArtist",
+  TheChampion = "TheChampion",
+  TheExaminer = "TheExaminer",
+  TheGuardian = "TheGuardian",
+  TheInnovator = "TheInnovator",
+  TheInspirer = "TheInspirer",
+  TheLeader = "TheLeader",
+  TheObserver = "TheObserver",
+  TheOrganiser = "TheOrganiser",
+  ThePerfectionist = "ThePerfectionist",
+  ThePerformer = "ThePerformer",
+  ThePioneer = "ThePioneer",
+  TheResolver = "TheResolver",
+  TheTactician = "TheTactician",
+  TheVisionary = "TheVisionary",
+}
+
+enum cardElementNameEnum {
+  DarkCard = "DarkCard",
+  LightCard = "LightCard",
+}
+
 const Components = {
   TheGuardian,
   DeveloperHelmet,
@@ -81,37 +112,6 @@ export const getStaticProps = (async ({ params }) => {
   };
 }) satisfies GetStaticProps;
 
-enum helmetElementNameEnum {
-  AdminHelmet = "AdminHelmet",
-  DeveloperHelmet = "DeveloperHelmet",
-  OrganiserHelmet = "OrganiserHelmet",
-  QaHelmet = "QaHelmet",
-  UiUxHelmet = "UiUxHelmet",
-}
-
-enum contentElementNameEnum {
-  TheArtist = "TheArtist",
-  TheChampion = "TheChampion",
-  TheExaminer = "TheExaminer",
-  TheGuardian = "TheGuardian",
-  TheInnovator = "TheInnovator",
-  TheInspirer = "TheInspirer",
-  TheLeader = "TheLeader",
-  TheObserver = "TheObserver",
-  TheOrganiser = "TheOrganiser",
-  ThePerfectionist = "ThePerfectionist",
-  ThePerformer = "ThePerformer",
-  ThePioneer = "ThePioneer",
-  TheResolver = "TheResolver",
-  TheTactician = "TheTactician",
-  TheVisionary = "TheVisionary",
-}
-
-enum cardElementNameEnum {
-  DarkCard = "DarkCard",
-  LightCard = "LightCard",
-}
-
 export default function Page({
   outcome,
 }: {
@@ -128,9 +128,9 @@ export default function Page({
   const router = useRouter();
   const { getResultCardImage } = useUtils();
 
-  const Content = Components[outcome.contentName] || (() => <></>);
-  const HelmetElement = Components[outcome.helmetElementName] || (() => <></>);
-  const CardElement = Components[outcome.cardElementName] || (() => <></>);
+  const Content = Components[outcome.contentName];
+  const HelmetElement = Components[outcome.helmetElementName];
+  // const CardElement = Components[outcome.cardElementName] || (() => <></>);
 
   const bgSpotColor = "rgba(99, 99, 99, 0.35)";
 
@@ -203,7 +203,7 @@ export default function Page({
                 height="770.344"
                 transform="translate(0.5 0.5)"
                 fill="none"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 strokeWidth="1"
               />
               <path
@@ -836,7 +836,7 @@ export default function Page({
                 d="M116.823,118.126A23.606,23.606,0,1,1,93.216,94.519,23.607,23.607,0,0,1,116.823,118.126Z"
                 fill="none"
                 stroke="#262424"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 strokeWidth="1"
               />
               <path
