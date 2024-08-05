@@ -28,63 +28,6 @@ import {
   QaHelmet,
   UiUxHelmet,
 } from "@/components/DeveloperHelmet";
-import { DarkCard, LightCard } from "@/components/LightCard";
-
-enum helmetElementNameEnum {
-  AdminHelmet = "AdminHelmet",
-  DeveloperHelmet = "DeveloperHelmet",
-  OrganiserHelmet = "OrganiserHelmet",
-  QaHelmet = "QaHelmet",
-  UiUxHelmet = "UiUxHelmet",
-}
-
-enum contentElementNameEnum {
-  TheArtist = "TheArtist",
-  TheChampion = "TheChampion",
-  TheExaminer = "TheExaminer",
-  TheGuardian = "TheGuardian",
-  TheInnovator = "TheInnovator",
-  TheInspirer = "TheInspirer",
-  TheLeader = "TheLeader",
-  TheObserver = "TheObserver",
-  TheOrganiser = "TheOrganiser",
-  ThePerfectionist = "ThePerfectionist",
-  ThePerformer = "ThePerformer",
-  ThePioneer = "ThePioneer",
-  TheResolver = "TheResolver",
-  TheTactician = "TheTactician",
-  TheVisionary = "TheVisionary",
-}
-
-enum cardElementNameEnum {
-  DarkCard = "DarkCard",
-  LightCard = "LightCard",
-}
-
-const Components = {
-  TheGuardian,
-  DeveloperHelmet,
-  LightCard,
-  AdminHelmet,
-  OrganiserHelmet,
-  UiUxHelmet,
-  QaHelmet,
-  TheArtist,
-  TheChampion,
-  TheExaminer,
-  TheInnovator,
-  TheInspirer,
-  TheLeader,
-  TheObserver,
-  TheOrganiser,
-  ThePerfectionist,
-  ThePerformer,
-  ThePioneer,
-  TheResolver,
-  TheTactician,
-  TheVisionary,
-  DarkCard,
-};
 
 export const getStaticPaths = (async () => {
   const paths = Object.keys(outcomes).map((key) => ({
@@ -93,16 +36,13 @@ export const getStaticPaths = (async () => {
   return { paths, fallback: false };
 }) satisfies GetStaticPaths;
 
-export const getStaticProps = (async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string;
   const outcome = outComeArray[id];
 
   return {
     props: {
       outcome: {
-        cardElementName: outcome.CardElement.name,
-        contentName: outcome.Content.name,
-        helmetElementName: outcome.HelmetElement.name,
         code: outcome.code,
         title: outcome.title,
         category: outcome.category,
@@ -110,15 +50,12 @@ export const getStaticProps = (async ({ params }) => {
       },
     },
   };
-}) satisfies GetStaticProps;
+};
 
 export default function Page({
   outcome,
 }: {
   outcome: {
-    contentName: contentElementNameEnum;
-    helmetElementName: helmetElementNameEnum;
-    cardElementName: cardElementNameEnum;
     code: string;
     title: string;
     category: string;
@@ -128,11 +65,8 @@ export default function Page({
   const router = useRouter();
   const { getResultCardImage } = useUtils();
 
-  const Content = Components[outcome.contentName];
-  const HelmetElement = Components[outcome.helmetElementName];
-  // const CardElement = Components[outcome.cardElementName] || (() => <></>);
-
   const bgSpotColor = "rgba(99, 99, 99, 0.35)";
+  const helmetColor = outcome?.pColor || "#48BD80";
 
   return (
     <div>
@@ -160,8 +94,50 @@ export default function Page({
             THE <br />
             {outcome?.title.replace("The ", "").toUpperCase()}
           </h1>
-          {HelmetElement({ color: outcome?.pColor || "#48BD80" })}
-          {Content()}
+
+          {["INFJ", "INTJ", "INTP", "ENTP", "ENFJ"].includes(outcome?.code) ? (
+            <DeveloperHelmet color={helmetColor} />
+          ) : ["ISFJ", "ISFP", "ENFP", "INFP"].includes(outcome?.code) ? (
+            <UiUxHelmet color={helmetColor} />
+          ) : ["ISTJ", "ESFJ"].includes(outcome?.code) ? (
+            <QaHelmet color={helmetColor} />
+          ) : outcome?.code === "ESTJ" ? (
+            <OrganiserHelmet color={helmetColor} />
+          ) : ["ISTP", "ESTP", "ESFP"].includes(outcome?.code) ? (
+            <AdminHelmet color={helmetColor} />
+          ) : null}
+
+          {outcome?.code === "INFJ" ? (
+            <TheGuardian />
+          ) : outcome?.code === "ISTP" ? (
+            <TheTactician />
+          ) : outcome?.code === "ESTP" ? (
+            <TheResolver />
+          ) : outcome?.code === "ESFP" ? (
+            <ThePerformer />
+          ) : outcome?.code === "ISTJ" ? (
+            <ThePerfectionist />
+          ) : outcome?.code === "ESTJ" ? (
+            <TheOrganiser />
+          ) : outcome?.code === "ESFJ" ? (
+            <TheExaminer />
+          ) : outcome?.code === "ISFJ" ? (
+            <TheObserver />
+          ) : outcome?.code === "ISFP" ? (
+            <TheArtist />
+          ) : outcome?.code === "ENFP" ? (
+            <TheInspirer />
+          ) : outcome?.code === "INFP " ? (
+            <TheChampion />
+          ) : outcome?.code === "ENFJ" ? (
+            <TheLeader />
+          ) : outcome?.code === "INTJ" ? (
+            <TheVisionary />
+          ) : outcome?.code === "INTP" ? (
+            <ThePioneer />
+          ) : outcome?.code === "ENTP" ? (
+            <TheInnovator />
+          ) : null}
         </div>
 
         <div className="share_btn_con">
