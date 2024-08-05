@@ -1,11 +1,59 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { OutcomeType } from "@/types/test";
 import { outcomes as outComeArray, outcomes } from "@/constants/test";
 import { useUtils } from "@/hooks/useUtils";
 import Head from "next/head";
 import { VIEW_RESULT_URL } from "@/constants/view-result-url";
 import { GetStaticPaths, GetStaticProps } from "next";
+import {
+  TheArtist,
+  TheChampion,
+  TheExaminer,
+  TheGuardian,
+  TheInnovator,
+  TheInspirer,
+  TheLeader,
+  TheObserver,
+  TheOrganiser,
+  ThePerfectionist,
+  ThePerformer,
+  ThePioneer,
+  TheResolver,
+  TheTactician,
+  TheVisionary,
+} from "@/components/TheGuardian";
+import {
+  AdminHelmet,
+  DeveloperHelmet,
+  OrganiserHelmet,
+  QaHelmet,
+  UiUxHelmet,
+} from "@/components/DeveloperHelmet";
+import { DarkCard, LightCard } from "@/components/LightCard";
+
+const Components = {
+  TheGuardian,
+  DeveloperHelmet,
+  LightCard,
+  AdminHelmet,
+  OrganiserHelmet,
+  UiUxHelmet,
+  QaHelmet,
+  TheArtist,
+  TheChampion,
+  TheExaminer,
+  TheInnovator,
+  TheInspirer,
+  TheLeader,
+  TheObserver,
+  TheOrganiser,
+  ThePerfectionist,
+  ThePerformer,
+  ThePioneer,
+  TheResolver,
+  TheTactician,
+  TheVisionary,
+  DarkCard,
+};
 
 export const getStaticPaths = (async () => {
   const paths = Object.keys(outcomes).map((key) => ({
@@ -14,21 +62,77 @@ export const getStaticPaths = (async () => {
   return { paths, fallback: false };
 }) satisfies GetStaticPaths;
 
-export const getStaticProps = (async () => {
-  return { props: {} };
+export const getStaticProps = (async ({ params }) => {
+  const id = params?.id as string;
+  const outcome = outComeArray[id];
+
+  return {
+    props: {
+      outcome: {
+        cardElementName: outcome.CardElement.name,
+        contentName: outcome.Content.name,
+        helmetElementName: outcome.HelmetElement.name,
+        code: outcome.code,
+        title: outcome.title,
+        category: outcome.category,
+        pColor: outcome.pColor,
+      },
+    },
+  };
 }) satisfies GetStaticProps;
 
-export default function Page() {
+enum helmetElementNameEnum {
+  AdminHelmet = "AdminHelmet",
+  DeveloperHelmet = "DeveloperHelmet",
+  OrganiserHelmet = "OrganiserHelmet",
+  QaHelmet = "QaHelmet",
+  UiUxHelmet = "UiUxHelmet",
+}
+
+enum contentElementNameEnum {
+  TheArtist = "TheArtist",
+  TheChampion = "TheChampion",
+  TheExaminer = "TheExaminer",
+  TheGuardian = "TheGuardian",
+  TheInnovator = "TheInnovator",
+  TheInspirer = "TheInspirer",
+  TheLeader = "TheLeader",
+  TheObserver = "TheObserver",
+  TheOrganiser = "TheOrganiser",
+  ThePerfectionist = "ThePerfectionist",
+  ThePerformer = "ThePerformer",
+  ThePioneer = "ThePioneer",
+  TheResolver = "TheResolver",
+  TheTactician = "TheTactician",
+  TheVisionary = "TheVisionary",
+}
+
+enum cardElementNameEnum {
+  DarkCard = "DarkCard",
+  LightCard = "LightCard",
+}
+
+export default function Page({
+  outcome,
+}: {
+  outcome: {
+    contentName: contentElementNameEnum;
+    HelmetElementName: helmetElementNameEnum;
+    cardElementName: cardElementNameEnum;
+    code: string;
+    title: string;
+    category: string;
+    pColor: string;
+  };
+}) {
   const router = useRouter();
-  const [outcome, setOutCome] = useState<OutcomeType>();
   const { getResultCardImage } = useUtils();
-  const [showResult] = useState(false);
+
+  const Content = Components[outcome.contentName] || (() => <></>);
+  const HelmetElement = Components[outcome.HelmetElementName] || (() => <></>);
+  const CardElement = Components[outcome.cardElementName] || (() => <></>);
 
   const bgSpotColor = "rgba(99, 99, 99, 0.35)";
-
-  useEffect(() => {
-    setOutCome(outComeArray[router.query.id as string]);
-  }, [router.query]);
 
   return (
     <div>
@@ -42,7 +146,7 @@ export default function Page() {
       </Head>
       <div
         style={{ backgroundColor: outcome?.pColor || "#48BD80" }}
-        className={`result_con  ${showResult ? "show_result" : ""}`}
+        className={`result_con`}
       >
         <div
           className={`card_con ${outcome?.category === "Admin" && "card_dark"}`}
@@ -56,8 +160,8 @@ export default function Page() {
             THE <br />
             {outcome?.title.replace("The ", "").toUpperCase()}
           </h1>
-          {outcome?.HelmetElement({ color: outcome?.pColor || "#48BD80" })}
-          {outcome?.Content()}
+          {HelmetElement({ color: outcome?.pColor || "#48BD80" })}
+          {Content()}
         </div>
 
         <div className="share_btn_con">
