@@ -74,7 +74,7 @@ export default function Page({
         <title>{`${router.query.id} - HGS`}</title>
         <meta
           property="og:image"
-          content={`https://hgs-permalink.vercel.app/images/og/${router.query.id}.png`}
+          content={`https://www.joinhgs.com/tech-xplorers/images/og/${router.query.id}.png`}
         />
         <meta property="og:url" content={`/result/${outcome?.code}`} />
       </Head>
@@ -85,7 +85,7 @@ export default function Page({
         <div
           className={`card_con ${outcome?.category === "Admin" && "card_dark"}`}
           style={{
-            backgroundImage: `url(/images/${getResultCardImage(
+            backgroundImage: `url(/tech-xplorers/images/${getResultCardImage(
               outcome?.category || ""
             )})`,
           }}
