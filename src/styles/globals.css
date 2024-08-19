@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: futura;
-  src: url("/fonts/futura.ttc");
+  src: url("/tech-xplorers/fonts/futura.ttc");
 }
 @font-face {
   font-family: bookFont;
@@ -25,7 +24,7 @@
 }
 @font-face {
   font-family: sneakers;
-  src: url("/fonts/sneakers.ttf");
+  src: url("/tech-xplorers/fonts/sneakers.ttf");
 }
 
 * {
@@ -192,7 +191,6 @@ body {
   }
 }
 
-
 .mobile_landscape {
   width: 100vw;
   height: 100vh;
@@ -215,6 +213,6 @@ body {
     }
     p {
       text-align: center;
-     }
+    }
   }
 }
