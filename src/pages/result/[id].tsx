@@ -76,7 +76,10 @@ export default function Page({
           property="og:image"
           content={`https://www.joinhgs.com/tech-xplorers/images/og/${router.query.id}.png`}
         />
-        <meta property="og:url" content={`/result/${outcome?.code}`} />
+        <meta
+          property="og:url"
+          content={`https://www.joinhgs.com/tech-xplorers/result/${outcome?.code}`}
+        />
       </Head>
       <div
         style={{ backgroundColor: outcome?.pColor || "#48BD80" }}
