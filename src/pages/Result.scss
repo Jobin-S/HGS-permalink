@@ -173,13 +173,13 @@
   }
 }
 
-@media (min-width: 1100px) and (max-width: 1300px) and (min-height: 500px) and (max-height: 600px) {
+@media (min-width: 1100px) and (max-width: 1300px) and (min-height: 500px) and (max-height: 650px) {
   .result_con {
     .card_con {
       height: 370px;
       width: calc(370px - (370px / 5));
       svg {
-        top: 30%;
+        top: 25%;
         scale: 0.6 !important;
       }
       h1 {
