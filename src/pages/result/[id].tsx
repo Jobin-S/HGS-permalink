@@ -71,7 +71,7 @@ export default function Page({
   return (
     <div>
       <Head>
-        <title>{`${router.query.id} - HGS`}</title>
+        <title>{`${router.query.id} | HGS - TechXplorer`}</title>
         <meta
           property="og:image"
           content={`https://www.joinhgs.com/tech-xplorers/images/og/${router.query.id}.png`}
