@@ -185,7 +185,7 @@
       h1 {
         font-size: 32px;
       }
-      
+
       p {
         font-size: 11px;
         width: 76%;
@@ -194,6 +194,14 @@
     }
     .share_btn_con {
       bottom: 5%;
+    }
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1600px) and (min-height: 650px) and (max-height: 800px) {
+  .result_con {
+    .card_con {
+      margin-top: 3%;
     }
   }
 }
