@@ -71,6 +71,19 @@ export default function Page({
   return (
     <div>
       <Head>
+        <meta
+          name="twitter:card"
+          content={`https://www.joinhgs.com/tech-xplorers/images/og/${router.query.id}.png`}
+        />
+        <meta
+          name="twitter:title"
+          content={`${router.query.id} | HGS - TechXplorer`}
+        />
+        <meta
+          name="twitter:image"
+          content={`https://www.joinhgs.com/tech-xplorers/images/og/${router.query.id}.png`}
+        />
+        <meta name="twitter:url" content="https://yourwebsite.com" />
         <title>{`${router.query.id} | HGS - TechXplorer`}</title>
         <meta
           property="og:image"
