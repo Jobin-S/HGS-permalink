@@ -143,7 +143,7 @@ export default function Page({
             <TheArtist />
           ) : outcome?.code === "ENFP" ? (
             <TheInspirer />
-          ) : outcome?.code === "INFP " ? (
+          ) : outcome?.code === "INFP" ? (
             <TheChampion />
           ) : outcome?.code === "ENFJ" ? (
             <TheLeader />

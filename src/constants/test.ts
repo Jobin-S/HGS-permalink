@@ -100,7 +100,7 @@ export const outcomes: {
     HelmetElement: UiUxHelmet,
     CardElement: LightCard,
   },
-  "INFP ": {
+  INFP: {
     code: "INFP",
     title: "The Champion",
     category: "UIUX",
