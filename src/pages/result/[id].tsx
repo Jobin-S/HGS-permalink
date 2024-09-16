@@ -28,6 +28,7 @@ import {
   QaHelmet,
   UiUxHelmet,
 } from "@/components/DeveloperHelmet";
+import Image from 'next/image';
 
 export const getStaticPaths = (async () => {
   const paths = Object.keys(outcomes).map((key) => ({
@@ -95,18 +96,26 @@ export default function Page({
         />
       </Head>
       <div
-        style={{ backgroundColor: outcome?.pColor || "#48BD80" }}
-        className={`result_con`}
+        style={{ backgroundColor: outcome.pColor }} 
+        className={`result_container`}
       >
-        <div
+        <img
+          className='result_image'
+          src={`https://www.joinhgs.com/tech-xplorers/images/Results/${router.query.id}.svg`}
+          alt="" 
+        />
+
+        {/* <div
           className={`card_con ${outcome?.category === "Admin" && "card_dark"}`}
           style={{
             backgroundImage: `url(/tech-xplorers/images/${getResultCardImage(
               outcome?.category || ""
             )})`,
           }}
-        >
-          <h1>
+        > */}
+          
+
+          {/* <h1>
             THE <br />
             {outcome?.title.replace("The ", "").toUpperCase()}
           </h1>
@@ -153,8 +162,8 @@ export default function Page({
             <ThePioneer />
           ) : outcome?.code === "ENTP" ? (
             <TheInnovator />
-          ) : null}
-        </div>
+          ) : null} */}
+        {/* </div> */}
 
         <div className="share_btn_con">
           <button
@@ -165,7 +174,7 @@ export default function Page({
             View your result
           </button>
         </div>
-        <svg
+        {/* <svg
           className="result_bg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1565.993 770.343"
@@ -887,7 +896,7 @@ export default function Page({
               />
             </g>
           </g>
-        </svg>
+        </svg> */}
       </div>
     </div>
   );
