@@ -1,34 +1,34 @@
 import { useRouter } from "next/router";
 import { outcomes as outComeArray, outcomes } from "@/constants/test";
-import { useUtils } from "@/hooks/useUtils";
+// import { useUtils } from "@/hooks/useUtils";
 import Head from "next/head";
 import { VIEW_RESULT_URL } from "@/constants/view-result-url";
 import { GetStaticPaths, GetStaticProps } from "next";
-import {
-  TheArtist,
-  TheChampion,
-  TheExaminer,
-  TheGuardian,
-  TheInnovator,
-  TheInspirer,
-  TheLeader,
-  TheObserver,
-  TheOrganiser,
-  ThePerfectionist,
-  ThePerformer,
-  ThePioneer,
-  TheResolver,
-  TheTactician,
-  TheVisionary,
-} from "@/components/TheGuardian";
-import {
-  AdminHelmet,
-  DeveloperHelmet,
-  OrganiserHelmet,
-  QaHelmet,
-  UiUxHelmet,
-} from "@/components/DeveloperHelmet";
-import Image from 'next/image';
+// import {
+//   TheArtist,
+//   TheChampion,
+//   TheExaminer,
+//   TheGuardian,
+//   TheInnovator,
+//   TheInspirer,
+//   TheLeader,
+//   TheObserver,
+//   TheOrganiser,
+//   ThePerfectionist,
+//   ThePerformer,
+//   ThePioneer,
+//   TheResolver,
+//   TheTactician,
+//   TheVisionary,
+// } from "@/components/TheGuardian";
+// import {
+//   AdminHelmet,
+//   DeveloperHelmet,
+//   OrganiserHelmet,
+//   QaHelmet,
+//   UiUxHelmet,
+// } from "@/components/DeveloperHelmet";
+// import Image from 'next/image';
 
 export const getStaticPaths = (async () => {
   const paths = Object.keys(outcomes).map((key) => ({
@@ -64,10 +64,10 @@ export default function Page({
   };
 }) {
   const router = useRouter();
-  const { getResultCardImage } = useUtils();
+  // const { getResultCardImage } = useUtils();
 
-  const bgSpotColor = "rgba(99, 99, 99, 0.35)";
-  const helmetColor = outcome?.pColor || "#48BD80";
+  // const bgSpotColor = "rgba(99, 99, 99, 0.35)";
+  // const helmetColor = outcome?.pColor || "#48BD80";
 
   return (
     <div>
