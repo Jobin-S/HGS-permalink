@@ -12,9 +12,19 @@
   left: 0;
   top: 0;
 
+  .result_bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    min-width: fit-content;
+    min-height: fit-content;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+
   .result_image {
-    width: 100%;
-    height: 100%;
+    height: 50%;
     object-fit: cover;
     position: absolute;
     top: 50%;  
@@ -79,15 +89,20 @@
 @media (max-height: 700px) {
   .result_container {
     .result_image {
-      width: 70%;
+      width: 18%;
     }
   }
 }
 
 @media (max-width: 750px) {
   .result_container {
+    .result_bg {
+      height: 100vh;
+      width: max-content;
+    }
     .result_image {
       height: 70%;
+      height: fit-content;
     }
   }
 }
